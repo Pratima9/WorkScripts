@@ -1,0 +1,28 @@
+#1. Create start,end and position variables  
+#2. Point the position variable to the mid of the list
+#3. If query is in the mid of the list, return the position
+#4. If query is less than position, query and assign position to right half of the list.
+#5. Else query and assign position to left half of the list
+#6. If cards array is empty or query element not in the list, then return -1
+#7. Iterate through the list in the range start to end
+def locate_cards(card,query):
+    start=-1
+    end=len(card)+1
+    position=(start+end)//2
+    while position in range(start,end):
+        if cards[position]==query:
+            return position
+        elif cards[position]>query:
+            start=position
+            position=(start+end)//2
+            print(start)
+            print(end)
+            print(position)
+        elif cards[position]<query:
+            end=position
+            position=(start+end)//2
+    return -1    
+cards=[]
+query=50
+res=locate_cards(cards,query)
+print(res)
